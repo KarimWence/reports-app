@@ -4,11 +4,14 @@ export default function CardHeader({props}) {
   return(
     <View style={styles.container}>
         <View style={styles.userImageContainer}>
-            <Text>👤</Text>
+            <Text style={styles.user}>👤</Text>
+        </View>
+        <View style={styles.infoContainer}>
+            <Text style={styles.nameText}>{props.name}</Text>
+            <Text style={styles.placeText}>{props.place}</Text>
         </View>
         <View>
-            <Text>{props.name}</Text>
-            <Text>{props.place}</Text>
+            <Text style={styles.hoursAgoText}>{props.hoursAgo}</Text>
         </View>
     </View>
   );
@@ -17,12 +20,31 @@ export default function CardHeader({props}) {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
         alignItems: 'center',
         paddingBottom: 8,
     },
     userImageContainer: {
         alignItems: 'center',
-        width: 10,
+        width: 30,
+    },
+    user: {
+        fontSize: 24,
+    },
+    infoContainer: {
+        flex: 1,
+        flexDirection: 'column',
+        paddingLeft: 8,
+    },
+    nameText: {
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    placeText: {
+        fontSize: 14,
+        color: '#888',
+    },
+    hoursAgoText: {
+        fontSize: 12,
+        color: '#888',
     },
 });
